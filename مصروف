@@ -1,0 +1,105 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPbSk7V0DR6RVPzfw0SNx6p",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Nawaf502dosr/my-project/blob/main/%D9%85%D8%B5%D8%B1%D9%88%D9%81\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CdMKOmWd_4je",
+        "outputId": "1daf11aa-2b3b-42ad-b0e9-94b8f7a60027"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "1) أضف دخل\n",
+            "2) أضف مصروف\n",
+            "3) اعرض الرصيد\n",
+            "4) خروج\n",
+            "اختر رقم: 3\n",
+            "الرصيد: 0\n",
+            "\n",
+            "1) أضف دخل\n",
+            "2) أضف مصروف\n",
+            "3) اعرض الرصيد\n",
+            "4) خروج\n",
+            "اختر رقم: 1\n",
+            "المبلغ: 1500\n",
+            "التصنيف: lwv,t\n",
+            "\n",
+            "1) أضف دخل\n",
+            "2) أضف مصروف\n",
+            "3) اعرض الرصيد\n",
+            "4) خروج\n",
+            "اختر رقم: 4\n"
+          ]
+        }
+      ],
+      "source": [
+        "العمليات = []\n",
+        "\n",
+        "def أضف_عملية(المبلغ, النوع, التصنيف):\n",
+        "    العمليات.append({\"المبلغ\": المبلغ, \"النوع\": النوع, \"التصنيف\": التصنيف})\n",
+        "\n",
+        "def احسب_الرصيد():\n",
+        "    المجموع = 0\n",
+        "    for عملية in العمليات:\n",
+        "        if عملية[\"النوع\"] == \"دخل\":\n",
+        "            المجموع += عملية[\"المبلغ\"]\n",
+        "        else:\n",
+        "            المجموع -= عملية[\"المبلغ\"]\n",
+        "    return المجموع\n",
+        "\n",
+        "while True:\n",
+        "    print(\"\\n1) أضف دخل\")\n",
+        "    print(\"2) أضف مصروف\")\n",
+        "    print(\"3) اعرض الرصيد\")\n",
+        "    print(\"4) خروج\")\n",
+        "    الاختيار = input(\"اختر رقم: \")\n",
+        "\n",
+        "    if الاختيار == \"1\":\n",
+        "        المبلغ = float(input(\"المبلغ: \"))\n",
+        "        التصنيف = input(\"التصنيف: \")\n",
+        "        أضف_عملية(المبلغ, \"دخل\", التصنيف)\n",
+        "    elif الاختيار == \"2\":\n",
+        "        المبلغ = float(input(\"المبلغ: \"))\n",
+        "        التصنيف = input(\"التصنيف: \")\n",
+        "        أضف_عملية(المبلغ, \"مصروف\", التصنيف)\n",
+        "    elif الاختيار == \"3\":\n",
+        "        print(\"الرصيد:\", احسب_الرصيد())\n",
+        "    elif الاختيار == \"4\":\n",
+        "        break"
+      ]
+    }
+  ]
+}
